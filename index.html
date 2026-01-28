@@ -1514,25 +1514,6 @@ footer {
 
     window.addEventListener('scroll', setActiveNav);
 
-    // Dynamic year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-    ...
-function handleScrollReveal() {
-  const triggerBottom = window.innerHeight * 0.88;
-
-  revealElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < triggerBottom) {
-      el.classList.add('visible');
-    }
-  });
-}
-    window.addEventListener('scroll', handleScrollReveal);
-handleScrollReveal();
-
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
-
   </script>
 </body>
 </html>
