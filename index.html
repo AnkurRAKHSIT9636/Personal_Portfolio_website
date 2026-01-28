@@ -1427,6 +1427,7 @@ footer {
             opportunities where I can contribute and grow.
           </p>
           <div class="contact-row">
+             <div class="contact-item">9830737588</div>
             <div class="contact-item">📧 ankurrakshit2@gmail.com</div>
             <div class="contact-item">📍 Kolkata, India</div>
             <div class="contact-item">🎓 CSE 8th Sem · SVIST</div>
@@ -1437,9 +1438,8 @@ footer {
           <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Online presence</h3>
           <p>Find my work, code and updates here:</p>
           <div class="social-row">
-            <a href="https://github.com/programmer-sahil" target="_blank" rel="noopener">💻 https://github.com/AnkurRAKHSIT9636</a>
+            <a href="https://github.com/AnkurRAKHSIT9636" target="_blank" rel="noopener">💻 https://github.com/AnkurRAKHSIT9636</a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener">🔗 www.linkedin.com/in/ankur-rakshit-19755b236</a>
-            <a href="https://www.kaggle.com" target="_blank" rel="noopener">📊 Kaggle</a>
             <a href="#hero">⬇ Download CV</a>
           </div>
         </div>
@@ -1516,6 +1516,23 @@ footer {
 
     // Dynamic year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+    ...
+function handleScrollReveal() {
+  const triggerBottom = window.innerHeight * 0.88;
+
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < triggerBottom) {
+      el.classList.add('visible');
+    }
+  });
+}
+    window.addEventListener('scroll', handleScrollReveal);
+handleScrollReveal();
+
+// Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
+
   </script>
 </body>
 </html>
