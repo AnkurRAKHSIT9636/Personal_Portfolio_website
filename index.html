@@ -778,35 +778,44 @@ section {
 }
 
 /* Contact & Footer */
+
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 1.3rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
 }
 
 .contact-card {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  background: rgba(15,23,42,0.92);
-  padding: 1rem;
-  font-size: 0.8rem;
-  color: var(--muted);
+  overflow: hidden;
 }
 
-.contact-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
+.contact-card a,
+.contact-item {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  display: block;
+}
+
+.contact-card a {
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.6rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+  text-decoration: none;
+  color: var(--accent);
 }
 
 .contact-item {
-  font-size: 0.78rem;
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.5);
-  background: rgba(15,23,42,0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
+
 
 .social-row {
   display: flex;
@@ -1811,12 +1820,13 @@ footer {
       <p>Find my work, code and updates here:</p>
 
       <a href="https://github.com/AnkurRAKHSIT9636" target="_blank" rel="noopener">
-        💻 github.com/AnkurRAKHSIT9636
-      </a>
+  💻 GitHub Profile
+</a>
 
-      <a href="https://www.linkedin.com/in/ankur-rakshit-19755b236" target="_blank" rel="noopener">
-        🔗 linkedin.com/in/ankur-rakshit-19755b236
-      </a>
+<a href="https://www.linkedin.com/in/ankur-rakshit-19755b236" target="_blank" rel="noopener">
+  🔗 LinkedIn Profile
+</a>
+
 
       <a href="#hero">⬇ Download CV</a>
     </div>
