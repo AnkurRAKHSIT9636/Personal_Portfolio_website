@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CSE 8th Sem ML Portfolio | Swami Vivekananda Institute of Science & Technology</title>
+  <title>CSE 8th Sem Portfolio | Swami Vivekananda Institute of Science & Technology</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Google Font -->
@@ -185,6 +185,36 @@ nav a.active {
 nav a:hover::after,
 nav a.active::after {
   width: 100%;
+}
+
+/* Portfolio Toggle Button */
+.portfolio-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(15,23,42,0.9);
+  overflow: hidden;
+}
+
+.toggle-btn {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+}
+
+.toggle-btn.active {
+  background: linear-gradient(to right, var(--accent), #a855f7);
+  color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
 }
 
 /* Mobile nav button */
@@ -821,6 +851,15 @@ footer {
   transform: translateY(0);
 }
 
+/* Content visibility toggle */
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero,
@@ -868,6 +907,10 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .portfolio-toggle {
+    margin-top: 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -902,236 +945,241 @@ footer {
           </div>
         </div>
 
-       <div class="toggle-group">
-         <button class="toggle-btn active" data-target="ml">ML</button>
-         <button class="toggle-btn" data-target="web">Web Dev</button>
-       </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <!-- Portfolio Toggle -->
+          <div class="portfolio-toggle">
+            <button class="toggle-btn active" data-portfolio="ml">ML</button>
+            <button class="toggle-btn" data-portfolio="webdev">Web Dev</button>
+          </div>
 
-        <nav>
-          <ul id="navMenu">
-            <li><a href="#hero" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#journey">Journey</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+          </button>
+
+          <nav>
+            <ul id="navMenu">
+              <li><a href="#hero" class="active">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#journey">Journey</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- MAIN CONTENT -->
   <main>
-    <section id="hero" class="hero container">
-      <div class="hero-left reveal">
-        <div class="hero-badge">
-          <span>⚡</span>
-          <p>Machine Learning &amp; Data-Driven Portfolio</p>
-        </div>
-        <h1>
-          Hi, I’m <span class="highlight">ANKUR RAKSHIT</span><br/>
-          CSE 8th Semester · ML Enthusiast
-        </h1>
-        <p class="hero-sub">
-          I’m a Computer Science student at <strong>Swami Vivekananda Institute of Science &amp; Technology, Kolkata</strong>,
-          exploring Machine Learning, Data Science and full-stack development. This portfolio showcases my projects,
-          skills and journey in building intelligent systems.
-        </p>
-
-        <div class="tagline">
-          <span class="tag-pill">Machine Learning</span>
-          <span class="tag-pill">Python · Scikit-learn</span>
-          <span class="tag-pill">Matplotlib · Data Visualization</span>
-          <span class="tag-pill">CSE 8th Sem</span>
-        </div>
-
-        <div class="hero-actions">
-          <a
-            href="YOUR_CV_LINK_HERE.pdf"
-            class="btn-primary"
-            download
-          >
-            ⬇ Download CV
-          </a>
-
-          <a href="#projects" class="btn-ghost">
-            🚀 View ML Projects
-          </a>
-        </div>
-
-        <div class="hero-meta">
-          <div class="hero-meta-item">
-            <div class="hero-meta-dot"></div>
-            <span>Open to internships &amp; ML roles</span>
+    <!-- ML PORTFOLIO CONTENT -->
+    <div id="ml-content" class="content-section active">
+      <!-- HERO -->
+      <section id="hero" class="hero container">
+        <div class="hero-left reveal">
+          <div class="hero-badge">
+            <span>⚡</span>
+            <p>Machine Learning &amp; Data-Driven Portfolio</p>
           </div>
-          <div class="hero-meta-item">
-            <span>📍 Kolkata, India</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-right reveal">
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <div>
-              <div class="hero-avatar">
-                <div class="hero-avatar-circle">
-                  <span>U</span>
-                </div>
-                <div class="hero-avatar-text">
-                  <span>Ankur Rakshit</span>
-                  <span>CSE · Machine Learning Student</span>
-                </div>
-              </div>
-
-              <div class="chip-row">
-                <span class="chip">🎓 Swami Vivekananda Institute of Science &amp; Technology</span>
-                <span class="chip">📚 8th Semester · CSE</span>
-              </div>
-
-              <p style="font-size:0.78rem;color:var(--muted);margin-top:0.4rem;">
-                Focused on building real-world ML solutions in finance, healthcare, NLP and computer vision,
-                using clean code, experiments and strong fundamentals.
-              </p>
-
-              <div class="hero-card-stats">
-                <div class="stat-card">
-                  <span>ML Projects</span><br/>
-                  <span>4+</span>
-                </div>
-                <div class="stat-card">
-                  <span>Languages</span><br/>
-                  <span>Python, JS</span>
-                </div>
-                <div class="stat-card">
-                  <span>Tools</span><br/>
-                  <span>Colab, GitHub</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-card-footer">
-              “Learning how to turn data into decisions, and projects into impact.”
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="container reveal">
-      <div class="section-header">
-        <span class="section-kicker">About</span>
-        <h2 class="section-title">Who am I as a CSE student?</h2>
-        <p class="section-subtitle">
-          A curious Computer Science student specializing in Machine Learning, passionate about solving real-world
-          problems through data, algorithms, and clean engineering.
-        </p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I’m currently pursuing <strong>B.Tech in Computer Science &amp; Engineering (8th Semester)</strong> at
-            <strong>Swami Vivekananda Institute of Science &amp; Technology, Kolkata</strong>. My interests span across:
+          <h1>
+            Hi, I'm <span class="highlight">ANKUR RAKSHIT</span><br/>
+            CSE 8th Semester · ML Enthusiast
+          </h1>
+          <p class="hero-sub">
+            I'm a Computer Science student at <strong>Swami Vivekananda Institute of Science &amp; Technology, Kolkata</strong>,
+            exploring Machine Learning, Data Science and full-stack development. This portfolio showcases my projects,
+            skills and journey in building intelligent systems.
           </p>
-          <ul class="about-list">
-            <li class="about-item">
-              <span class="about-item-bullet"></span>
-              <span>Building practical Machine Learning projects with clear outputs and visualizations.</span>
-            </li>
-            <li class="about-item">
-              <span class="about-item-bullet"></span>
-              <span>Working with Python, Scikit-learn, Pandas, NumPy, Matplotlib and real-world datasets.</span>
-            </li>
-            <li class="about-item">
-              <span class="about-item-bullet"></span>
-              <span>Learning software engineering best practices: version control, clean code, documentation.</span>
-            </li>
-          </ul>
-          <p style="margin-top:0.8rem;">
-            I love collaborating with peers, breaking down complex topics into simple ideas, and learning by doing
-            through hands-on mini-projects, internships and hackathons.
+
+          <div class="tagline">
+            <span class="tag-pill">Machine Learning</span>
+            <span class="tag-pill">Python · Scikit-learn</span>
+            <span class="tag-pill">Matplotlib · Data Visualization</span>
+            <span class="tag-pill">CSE 8th Sem</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="YOUR_CV_LINK_HERE.pdf" class="btn-primary" download>
+              ⬇ Download CV
+            </a>
+            <a href="#projects" class="btn-ghost">
+              🚀 View ML Projects
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <div class="hero-meta-dot"></div>
+              <span>Open to internships &amp; ML roles</span>
+            </div>
+            <div class="hero-meta-item">
+              <span>📍 Kolkata, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <div>
+                <div class="hero-avatar">
+                  <div class="hero-avatar-circle">
+                    <span>U</span>
+                  </div>
+                  <div class="hero-avatar-text">
+                    <span>ANKUR RAKSHIT</span>
+                    <span>CSE · Machine Learning Student</span>
+                  </div>
+                </div>
+
+                <div class="chip-row">
+                  <span class="chip">🎓 Swami Vivekananda Institute of Science &amp; Technology</span>
+                  <span class="chip">📚 8th Semester · CSE</span>
+                </div>
+
+                <p style="font-size:0.78rem;color:var(--muted);margin-top:0.4rem;">
+                  Focused on building real-world ML solutions in finance, healthcare, NLP and computer vision,
+                  using clean code, experiments and strong fundamentals.
+                </p>
+
+                <div class="hero-card-stats">
+                  <div class="stat-card">
+                    <span>ML Projects</span><br/>
+                    <span>4+</span>
+                  </div>
+                  <div class="stat-card">
+                    <span>Languages</span><br/>
+                    <span>Python, JS</span>
+                  </div>
+                  <div class="stat-card">
+                    <span>Tools</span><br/>
+                    <span>Colab, GitHub, JupyterLab</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                "Learning how to turn data into decisions, and projects into impact."
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">About</span>
+          <h2 class="section-title">Who am I as a CSE student?</h2>
+          <p class="section-subtitle">
+            A curious Computer Science student specializing in Machine Learning, passionate about solving real-world
+            problems through data, algorithms, and clean engineering.
           </p>
         </div>
 
-        <div class="about-card">
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Quick profile</h3>
-          <div class="about-list">
-            <div class="about-item">
-              <span class="about-item-bullet"></span>
-              <span><strong>College:</strong> Swami Vivekananda Institute of Science &amp; Technology, Kolkata</span>
-            </div>
-            <div class="about-item">
-              <span class="about-item-bullet"></span>
-              <span><strong>Semester:</strong> 8th Semester, CSE</span>
-            </div>
-            <div class="about-item">
-              <span class="about-item-bullet"></span>
-              <span><strong>Focus Areas:</strong> Machine Learning, Data Visualization, Python, Git &amp; GitHub</span>
-            </div>
-            <div class="about-item">
-              <span class="about-item-bullet"></span>
-              <span><strong>Strengths:</strong> Problem solving, consistency, explaining concepts simply, teamwork</span>
-            </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm currently pursuing <strong>B.Tech in Computer Science &amp; Engineering (8th Semester)</strong> at
+              <strong>Swami Vivekananda Institute of Science &amp; Technology, Kolkata</strong>. My interests span across:
+            </p>
+            <ul class="about-list">
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Building practical Machine Learning projects with clear outputs and visualizations.</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Working with Python, Scikit-learn, Pandas, NumPy, Matplotlib and real-world datasets.</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Learning software engineering best practices: version control, clean code, documentation.</span>
+              </li>
+            </ul>
+            <p style="margin-top:0.8rem;">
+              I love collaborating with peers, breaking down complex topics into simple ideas, and learning by doing
+              through hands-on mini-projects, internships and hackathons.
+            </p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="container reveal">
-      <div class="section-header">
-        <span class="section-kicker">Skills</span>
-        <h2 class="section-title">Tech stack & tools</h2>
-        <p class="section-subtitle">
-          A mix of Machine Learning, programming fundamentals and tools used in real-world development and analytics.
-        </p>
-      </div>
+          <div class="about-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Quick profile</h3>
+            <div class="about-list">
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>College:</strong> Swami Vivekananda Institute of Science &amp; Technology, Kolkata</span>
+              </div>
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>Semester:</strong> 8th Semester, CSE</span>
+              </div>
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>Focus Areas:</strong> Machine Learning, Data Visualization, Python, Git &amp; GitHub</span>
+              </div>
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>Strengths:</strong> Problem solving, consistency, explaining concepts simply, teamwork</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-title">Machine Learning</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Supervised Learning</span>
-            <span class="skill-tag">Classification</span>
-            <span class="skill-tag">Regression</span>
-            <span class="skill-tag">Clustering</span>
-          </div>
+      <!-- SKILLS -->
+      <section id="skills" class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Skills</span>
+          <h2 class="section-title">Tech stack & tools</h2>
+          <p class="section-subtitle">
+            A mix of Machine Learning, programming fundamentals and tools used in real-world development and analytics.
+          </p>
         </div>
-        <div class="skill-card">
-          <div class="skill-title">Python & Libraries</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">Matplotlib</span>
-            <span class="skill-tag">Scikit-learn</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-title">ML Techniques</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Train/Test Split</span>
-            <span class="skill-tag">Cross-Validation</span>
-            <span class="skill-tag">Feature Engineering</span>
-            <span class="skill-tag">Hyperparameter Tuning</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-title">Tools & Workflow</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Google Colab</span>
-            <span class="skill-tag">Jupyter</span>
-            <span class="skill-tag">Git &amp; GitHub</span>
-            <span class="skill-tag">VS Code</span>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- PROJECTS -->
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-title">Machine Learning</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Supervised Learning</span>
+              <span class="skill-tag">Classification</span>
+              <span class="skill-tag">Regression</span>
+              <span class="skill-tag">Clustering</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">Python & Libraries</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">Scikit-learn</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">ML Techniques</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Train/Test Split</span>
+              <span class="skill-tag">Cross-Validation</span>
+              <span class="skill-tag">Feature Engineering</span>
+              <span class="skill-tag">Hyperparameter Tuning</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">Tools & Workflow</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Colab</span>
+              <span class="skill-tag">Jupyter</span>
+              <span class="skill-tag">Git &amp; GitHub</span>
+              <span class="skill-tag">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
     <!-- PROJECTS -->
     <section id="projects" class="container reveal">
       <div class="section-header">
@@ -1280,172 +1328,499 @@ footer {
     </section>
 
     <!-- JOURNEY / TIMELINE -->
-    <section id="journey" class="container reveal">
-      <div class="section-header">
-        <span class="section-kicker">Journey</span>
-        <h2 class="section-title">My learning roadmap in ML</h2>
-        <p class="section-subtitle">
-          A quick snapshot of how I’ve been progressing from core CSE fundamentals to hands-on Machine Learning and
-          real-world projects during my degree.
-        </p>
-      </div>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Foundations in CSE & Programming</div>
-          <div class="timeline-meta">1st–7thSemester · C, Java, Data Structures</div>
-          <div class="timeline-text">
-            Built a strong base in problem solving, algorithms, and core Computer Science subjects, including data
-            structures, DBMS, and basic OS and Networking concepts.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Python, Data Analysis & Visualization</div>
-          <div class="timeline-meta">4th–5th Semester · Python, Pandas, Matplotlib</div>
-          <div class="timeline-text">
-            Started working with real datasets, cleaning data, exploring trends and building charts using Pandas and
-            Matplotlib to understand patterns visually.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Machine Learning Fundamentals</div>
-          <div class="timeline-meta">5th–6th Semester · Scikit-learn, ML Projects</div>
-          <div class="timeline-text">
-            Implemented supervised and unsupervised algorithms like Linear Regression, Logistic Regression, K-Means and
-            Naive Bayes, with proper train/test splits and evaluation.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Advanced ML & Real-World Applications</div>
-          <div class="timeline-meta">Present · Ensembles, Evaluation, Portfolios</div>
-          <div class="timeline-text">
-            Exploring ensemble models (Random Forest, XGBoost), cross-validation, and building end-to-end ML portfolios,
-            while preparing for internships and industry roles.
-          </div>
-        </div>
-      </div>
-    </section>
-<!-- INTERNSHIP -->
-<section id="internship" class="container reveal">
-  <div class="section-header">
-    <span class="section-kicker">Internship</span>
-    <h2 class="section-title">Industry Experience & Applied Learning</h2>
-    <p class="section-subtitle">
-      Hands-on training and real-world exposure in Machine Learning & Deep Learning through industry-oriented internship.
-    </p>
-  </div>
-
-  <div class="contact-grid">
-    <div class="contact-card">
-      <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Ardent Computech Pvt. Ltd · Kolkata</h3>
-      <p style="margin-bottom:0.5rem;">
-        Completed a comprehensive <strong>Machine Learning & Deep Learning Internship</strong> covering algorithms, data preprocessing,
-        model training, evaluation, and deployment workflows.
-      </p>
-
-      <ul class="about-list">
-        <li class="about-item">
-          <span class="about-item-bullet"></span>
-          <span>Duration: 4–6 Weeks (Industrial Internship Training)</span>
-        </li>
-        <li class="about-item">
-          <span class="about-item-bullet"></span>
-          <span>Domain: Machine Learning, Deep Learning & Model Evaluation</span>
-        </li>
-        <li class="about-item">
-          <span class="about-item-bullet"></span>
-          <span>Tools: Python, Scikit-learn, TensorFlow/Keras, Pandas, NumPy & Colab</span>
-        </li>
-        <li class="about-item">
-          <span class="about-item-bullet"></span>
-          <span>Outcome: Built 6+ complete ML/DL projects with documentation & visualization</span>
-        </li>
-      </ul>
-
-      <p style="margin-top:0.7rem;">
-        This internship helped me connect classroom concepts to real industrial use-cases, strengthen my fundamentals,
-        and gain confidence in working with data-driven systems.
-      </p>
-    </div>
-
-    <div class="contact-card">
-      <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Projects Completed During Internship</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Machine Learning Projects</div>
-          <div class="timeline-meta">4+ end-to-end applications</div>
-          <div class="timeline-text">
-            Implemented datasets, feature engineering, supervised learning, evaluation metrics, and model deployment basics.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Deep Learning Projects</div>
-          <div class="timeline-meta">2+ neural network models</div>
-          <div class="timeline-text">
-            Built neural networks for computer vision & NLP tasks using Keras/TensorFlow and trained models in Google Colab.
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-title">Research & Documentation</div>
-          <div class="timeline-meta">Reports + Presentations</div>
-          <div class="timeline-text">
-            Documented project workflows, experiment results, hyperparameters, and insights for technical presentations.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="container reveal">
-      <div class="section-header">
-        <span class="section-kicker">Contact</span>
-        <h2 class="section-title">Let’s connect & collaborate</h2>
-        <p class="section-subtitle">
-          Open to internships, collaborative projects, research work and tech communities. Feel free to reach out for
-          opportunities related to Machine Learning, Data Science or software development.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Contact details</h3>
-          <p>
-            You can use the following channels to connect with me. I’m happy to discuss ideas, projects, or
-            opportunities where I can contribute and grow.
+      <!-- JOURNEY -->
+      <section id="journey" class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Journey</span>
+          <h2 class="section-title">My learning roadmap in ML</h2>
+          <p class="section-subtitle">
+            A quick snapshot of how I've been progressing from core CSE fundamentals to hands-on Machine Learning and
+            real-world projects during my degree.
           </p>
-          <div class="contact-row">
-             <div class="contact-item">9830737588</div>
-            <div class="contact-item">📧 ankurrakshit2@gmail.com</div>
-            <div class="contact-item">📍 Kolkata, India</div>
-            <div class="contact-item">🎓 CSE 8th Sem · SVIST</div>
-          </div>
         </div>
 
-        <div class="contact-card">
-          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Online presence</h3>
-          <p>Find my work, code and updates here:</p>
-          <div class="social-row">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Foundations in CSE & Programming</div>
+            <div class="timeline-meta">1st–7th Semester · C,Java, Data Structures</div>
+            <div class="timeline-text">
+              Built a strong base in problem solving, algorithms, and core Computer Science subjects, including data
+              structures, DAA,COA and basic OS concepts.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Python, Data Analysis & Visualization</div>
+            <div class="timeline-meta">7th–8th Semester · Python, Numpy, Pandas, Matplotlib</div>
+            <div class="timeline-text">
+              Started working with real datasets, cleaning data, exploring trends and building charts using Pandas and
+              Matplotlib to understand patterns visually.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Machine Learning Fundamentals</div>
+            <div class="timeline-meta">7th–8th Semester · Scikit-learn, ML Projects</div>
+            <div class="timeline-text">
+              Implemented supervised and unsupervised algorithms like Linear Regression, Logistic Regression, K-Means and
+              Naive Bayes, with proper train/test splits and evaluation.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Advanced ML & Real-World Applications</div>
+            <div class="timeline-meta">Present · Ensembles, Evaluation, Portfolios</div>
+            <div class="timeline-text">
+              Exploring ensemble models (Random Forest, XGBoost), cross-validation, and building end-to-end ML portfolios,
+              while preparing for internships and industry roles.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERNSHIP -->
+      <section class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Internship</span>
+          <h2 class="section-title">Industry Experience & Applied Learning</h2>
+          <p class="section-subtitle">
+            Hands-on training and real-world exposure in Machine Learning & Deep Learning through industry-oriented internship.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Ardent Computech Pvt. Ltd · Kolkata</h3>
+            <p style="margin-bottom:0.5rem;">
+              Completed a comprehensive <strong>Machine Learning & Deep Learning Internship</strong> covering algorithms, data preprocessing,
+              model training, evaluation, and deployment workflows.
+            </p>
+
+            <ul class="about-list">
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Duration: 4–6 Weeks (Industrial Internship Training)</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Domain: Machine Learning, Deep Learning & Model Evaluation</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Tools: Python, Scikit-learn, TensorFlow/Keras, Pandas, NumPy & Colab</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Outcome: Built 6+ complete ML/DL projects with documentation & visualization</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Projects Completed During Internship</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Machine Learning Projects</div>
+                <div class="timeline-meta">4+ end-to-end applications</div>
+                <div class="timeline-text">
+                  Implemented datasets, feature engineering, supervised learning, evaluation metrics, and model deployment basics.
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Deep Learning Projects</div>
+                <div class="timeline-meta">2+ neural network models</div>
+                <div class="timeline-text">
+                  Built neural networks for computer vision & NLP tasks using Keras/TensorFlow and trained models in Google Colab.
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-title">Research & Documentation</div>
+                <div class="timeline-meta">Reports + Presentations</div>
+                <div class="timeline-text">
+                  Documented project workflows, experiment results, hyperparameters, and insights for technical presentations.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Contact</span>
+          <h2 class="section-title">Let's connect & collaborate</h2>
+          <p class="section-subtitle">
+            Open to internships, collaborative projects, research work and tech communities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Contact details</h3>
+            <p>
+              You can use the following channels to connect with me.
+            </p>
+            <div class="contact-row">
+              <div class="contact-item">📧 ankurrakshit2@gmail.com</div>
+              <div class="contact-item">   +91 9830737588</div>
+              <div class="contact-item">📍 Kolkata, India</div>
+              <div class="contact-item">🎓 CSE 8th Sem · SVIST</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Online presence</h3>
+            <p>Find my work, code and updates here:</p>
             <a href="https://github.com/AnkurRAKHSIT9636" target="_blank" rel="noopener">💻 https://github.com/AnkurRAKHSIT9636</a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener">🔗 www.linkedin.com/in/ankur-rakshit-19755b236</a>
             <a href="#hero">⬇ Download CV</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
+    <!-- WEB DEV PORTFOLIO CONTENT -->
+    <div id="webdev-content" class="content-section">
+      <!-- HERO -->
+      <section class="hero container">
+        <div class="hero-left reveal">
+          <div class="hero-badge">
+            <span>💻</span>
+            <p>Web Development & MERN-Stack Portfolio</p>
+          </div>
+          <h1>
+            Hi, I'm <span class="highlight">ANKUR RAKSHIT</span><br/>
+            CSE 6th Semester · MERN Developer
+          </h1>
+          <p class="hero-sub">
+            I'm a Computer Science student at <strong>Swami Vivekananda Institute of Science &amp; Technology, Kolkata</strong>,
+            passionate about building modern web applications with clean code, responsive design, and seamless user experiences.
+          </p>
+
+          <div class="tagline">
+            <span class="tag-pill">MERN-Stack Development</span>
+            <span class="tag-pill">React · Node.js</span>
+            <span class="tag-pill">MongoDB · Express.js</span>
+            <span class="tag-pill">Responsive Design</span>
+            <span class="tag-pill">CSE 6th Sem</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="YOUR_CV_LINK_HERE.pdf" class="btn-primary" download>
+              ⬇ Download CV
+            </a>
+            <a href="#projects" class="btn-ghost">
+              🚀 View Web Projects
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <div class="hero-meta-dot"></div>
+              <span>Open to web dev internships & freelance</span>
+            </div>
+            <div class="hero-meta-item">
+              <span>📍 Kolkata, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <div>
+                <div class="hero-avatar">
+                  <div class="hero-avatar-circle">
+                    <span>U</span>
+                  </div>
+                  <div class="hero-avatar-text">
+                    <span>ANKUR RAKSHIT</span>
+                    <span>CSE · Web Developer</span>
+                  </div>
+                </div>
+
+                <div class="chip-row">
+                  <span class="chip">🎓 Swami Vivekananda Institute of Science &amp; Technology</span>
+                  <span class="chip">📚 8th Semester · CSE</span>
+                </div>
+
+                <p style="font-size:0.78rem;color:var(--muted);margin-top:0.4rem;">
+                  Building modern, responsive web applications using React, Node.js, and modern CSS frameworks.
+                  Focused on clean code, user experience, and scalable architectures.
+                </p>
+
+                <div class="hero-card-stats">
+                  <div class="stat-card">
+                    <span>Web Projects</span><br/>
+                    <span>2+</span>
+                  </div>
+                  <div class="stat-card">
+                    <span>Tech Stack</span><br/>
+                    <span>MERN</span>
+                  </div>
+                  <div class="stat-card">
+                    <span>Design</span><br/>
+                    <span>Responsive</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                "Turning ideas into pixel-perfect, functional web experiences."
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">About</span>
+          <h2 class="section-title">My journey in web development</h2>
+          <p class="section-subtitle">
+            A passionate web developer with a strong foundation in both frontend and backend technologies,
+            creating seamless digital experiences.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm currently pursuing <strong>B.Tech in Computer Science &amp; Engineering (8th Semester)</strong> at
+              <strong>Swami Vivekananda Institute of Science &amp; Technology, Kolkata</strong>. My web development journey includes:
+            </p>
+            <ul class="about-list">
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Building responsive, modern web applications using React, Next.js, and Tailwind CSS.</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Developing RESTful APIs and full-stack applications with Node.js, Express, and MongoDB.</span>
+              </li>
+              <li class="about-item">
+                <span class="about-item-bullet"></span>
+                <span>Implementing best practices in version control, deployment, and web performance optimization.</span>
+              </li>
+            </ul>
+            <p style="margin-top:0.8rem;">
+              I believe in writing clean, maintainable code and creating user-centric designs that solve real problems.
+              Always eager to learn new frameworks and technologies.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Quick profile</h3>
+            <div class="about-list">
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>College:</strong> Swami Vivekananda Institute of Science &amp; Technology, Kolkata</span>
+              </div>
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>Semester:</strong> 8th Semester, CSE</span>
+              </div>
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>Focus Areas:</strong> MERN-Stack Development, React, Node.js, Responsive Design</span>
+              </div>
+              <div class="about-item">
+                <span class="about-item-bullet"></span>
+                <span><strong>Strengths:</strong> UI/UX implementation, API development, debugging, teamwork</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Skills</span>
+          <h2 class="section-title">Web development tech stack</h2>
+          <p class="section-subtitle">
+            Modern frontend and backend technologies for building scalable web applications.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-title">Frontend Development</div>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">Backend Development</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">Authentication</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">Styling & UI</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">Animations</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-title">Tools & Deployment</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Git &amp; GitHub</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">Vercel</span>
+             
+              <span class="skill-tag">Postman</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Projects</span>
+          <h2 class="section-title">Web Development Projects</h2>
+          <p class="section-subtitle">
+            A collection of web applications showcasing frontend, backend, and MERN-stack development skills.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-pill">MERN-Stack · E-Commerce</div>
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-desc">
+              Built a complete e-commerce solution with product catalog, shopping cart, user authentication, and payment
+              integration using the MERN stack.
+            </p>
+            <div class="project-meta">
+              <div class="project-tech">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>MongoDB</span>
+                <span>Express.js</span>
+              </div>
+              <div class="https://github.com/AnkurRAKHSIT9636/ecom">
+                <a href="#" target="_blank" rel="noopener">
+                  🔗 https://ecom-5nb9.vercel.app/
+                </a>
+              </div>
+            </div>
+          </article>
+      <!-- JOURNEY -->
+      <section class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Journey</span>
+          <h2 class="section-title">My web development journey</h2>
+          <p class="section-subtitle">
+            From HTML basics to full-stack development - tracking my progress through various technologies and frameworks.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">HTML, CSS & JavaScript Fundamentals</div>
+            <div class="timeline-meta">1st–2nd Semester · Web Basics</div>
+            <div class="timeline-text">
+              Started with core web technologies, learning semantic HTML, responsive CSS layouts, DOM manipulation, and
+              JavaScript fundamentals including ES6+ features.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Frontend Frameworks & Libraries</div>
+            <div class="timeline-meta">6th–7th Semester · React, Bootstrap</div>
+            <div class="timeline-text">
+              Learned React for building dynamic UIs, component-based architecture, state management, and modern CSS
+              frameworks like Bootstrap and Tailwind for rapid development.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Backend Development & Databases</div>
+            <div class="timeline-meta">7th Semester · Node.js, MongoDB</div>
+            <div class="timeline-text">
+              Expanded into backend development with Node.js and Express, learning RESTful API design, database management
+              with MongoDB, and authentication systems.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-title">Full-Stack Projects & Deployment</div>
+            <div class="timeline-meta">7th Semester · MERN Stack</div>
+            <div class="timeline-text">
+              Building complete MERN-stack applications, cloud deployment on Vercel/Netlify,
+              and focusing on performance optimization and best practices.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="container reveal">
+        <div class="section-header">
+          <span class="section-kicker">Contact</span>
+          <h2 class="section-title">Let's build something together</h2>
+          <p class="section-subtitle">
+            Open to web development opportunities, freelance projects, and collaborations.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Contact details</h3>
+            <p>
+              Interested in working together? Let's connect and discuss your project.
+            </p>
+            <div class="contact-row">
+               <div class="contact-item">9830737588</div>
+               <div class="contact-item">📧 ankurrakshit2@gmail.com</div>
+               <div class="contact-item">📍 Kolkata, India</div>
+               <div class="contact-item">🎓 CSE 8th Sem · SVIST</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Find me online</h3>
+            <p>Check out my code and connect with me:</p>
+            <div class="social-row">
+             <a href="https://github.com/AnkurRAKHSIT9636" target="_blank" rel="noopener">💻 https://github.com/AnkurRAKHSIT9636</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener">🔗 www.linkedin.com/in/ankur-rakshit-19755b236</a>
+            <a href="#hero">⬇ Download CV</a>
+          </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -1453,13 +1828,48 @@ footer {
     <div class="container">
       <p>
         © <span id="year"></span> CSE 8th Semester · Swami Vivekananda Institute of Science &amp; Technology, Kolkata.
-        Built with HTML, CSS and a lot of curiosity for Machine Learning.
+        Built with passion for <span id="footer-domain">Machine Learning</span>.
       </p>
     </div>
   </footer>
 
   <!-- SCRIPTS -->
   <script>
+    // Portfolio toggle functionality
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    const mlContent = document.getElementById('ml-content');
+    const webdevContent = document.getElementById('webdev-content');
+    const footerDomain = document.getElementById('footer-domain');
+
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const portfolio = button.getAttribute('data-portfolio');
+        
+        // Update active button
+        toggleButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Toggle content
+        if (portfolio === 'ml') {
+          mlContent.classList.add('active');
+          webdevContent.classList.remove('active');
+          footerDomain.textContent = 'Machine Learning';
+        } else {
+          mlContent.classList.remove('active');
+          webdevContent.classList.add('active');
+          footerDomain.textContent = 'Web Development';
+        }
+        
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Re-trigger reveal animations
+        setTimeout(() => {
+          handleScrollReveal();
+        }, 100);
+      });
+    });
+
     // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -1515,6 +1925,8 @@ footer {
 
     window.addEventListener('scroll', setActiveNav);
 
+    // Dynamic year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
